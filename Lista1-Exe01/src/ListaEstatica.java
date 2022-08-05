@@ -59,7 +59,24 @@ public class ListaEstatica {
 	
 	//f)
 	public void retirar(int valor) {
+		int posicaoValor;
 		
+		posicaoValor = this.buscar(valor);
+		
+		if(posicaoValor != -1) {
+			for(int i = posicaoValor; i < tamanho; i++) {
+				info[i] = info[i + 1];
+			}
+			tamanho--;
+		}
+		
+	}
+	
+	//g)
+	public void liberar() {
+		int[] novo = new int[10];
+		
+		info = novo;
 	}
 	
 }
