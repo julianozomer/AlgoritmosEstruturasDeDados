@@ -46,7 +46,7 @@ public class ListaEstatica {
 	public int buscar(int valor) {
 		int posicao = -1;
 		
-		for (int i = 0; i <= tamanho; i++) {
+		for (int i = 0; i < tamanho; i++) {
 			if (info[i] == valor) {
 				posicao = i;
 				return posicao;
@@ -63,7 +63,7 @@ public class ListaEstatica {
 		posicaoValor = this.buscar(valor);
 		
 		if(posicaoValor != -1) {
-			for(int i = posicaoValor; i < tamanho; i++) {
+			for(int i = posicaoValor; i < tamanho - 1; i++) {
 				info[i] = info[i + 1];
 			}
 			tamanho--;
@@ -73,14 +73,17 @@ public class ListaEstatica {
 	
 	//g)
 	public void liberar() {
-		int[] novo = new int[10];
-		
-		info = novo;
+		info = new int[10];
+		tamanho = 0;
 	}
 
     //h)
-    public int obterElemento(int pos) throws IndexOutOfBoundsException{
-        return info[pos];
+    public int obterElemento(int posicao){
+        if (posicao >= 0 && (posicao < tamanho)) {
+        	return info[posicao];
+        } else {
+        	throw new IndexOutOfBoundsException();
+        }
     }
 
     //i)
@@ -99,11 +102,12 @@ public class ListaEstatica {
 
     //k)
     public String toString(){
-        String txt;
+        String txt = "";
 
         for(int i = 0; i <= getTamanho() - 1; i++){
-            return txt += info[i] + ", ";
+        	txt += info[i] + ", ";
         }
+        return txt;
     }
 	
 }
