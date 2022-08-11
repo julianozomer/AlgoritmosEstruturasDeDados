@@ -1,4 +1,3 @@
-
 public class ListaEstatica {
 	private int[] info;
 	private int tamanho;
@@ -10,7 +9,7 @@ public class ListaEstatica {
 	}
 	
 	//b)
-	public int[] redimensionar() {
+	private int[] redimensionar() {
 		int[] novo;
 		int novoTamanho;
 		
@@ -78,5 +77,33 @@ public class ListaEstatica {
 		
 		info = novo;
 	}
+
+    //h)
+    public int obterElemento(int pos) throws IndexOutOfBoundsException{
+        return info[pos];
+    }
+
+    //i)
+    public boolean estaVazia(){
+        if (tamanho == 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //j)
+    public int getTamanho(){
+        return tamanho;
+    }
+
+    //k)
+    public String toString(){
+        String txt;
+
+        for(int i = 0; i <= getTamanho() - 1; i++){
+            return txt += info[i] + ", ";
+        }
+    }
 	
 }
